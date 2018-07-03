@@ -29,6 +29,10 @@ module Profiles
     LogIn.new
   end
 
+  def overlap
+    Overlap.new
+  end
+
   def profile
     Profile.new
   end

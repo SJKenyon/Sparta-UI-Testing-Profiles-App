@@ -41,12 +41,12 @@ end
 When("fill in the correct details of my project") do
   project.fill_in_title
   project.fill_in_desc
-  project.click_save
+  overlap.click_save
 end
 
 Then("it should show my project on the index") do
-  project.click_back
-  expect(project.project_count).to eq 3
+  overlap.click_back
+  expect(overlap.table_count).to eq 3
 end
 
 When("I click edit project") do
@@ -55,7 +55,7 @@ end
 
 When("change the details on my project form") do
   project.edit_project
-  project.click_save
+  overlap.click_save
 end
 
 Then(/^it should show the new title (.*) on my project id page$/) do |title|
@@ -64,11 +64,11 @@ Then(/^it should show the new title (.*) on my project id page$/) do |title|
 end
 
 When("I click to delete the project") do
-  project.click_delete
+  overlap.click_delete
 end
 
 Then("it should remove the project from that page") do
-  expect(project.project_count).to eq 2
+  expect(overlap.table_count).to eq 2
 end
 
 Given("I navigate to the employment section") do
@@ -84,12 +84,12 @@ When("fill in the correct details of my employment") do
   employment.fill_in_role
   employment.fill_in_date
   employment.fill_in_desc
-  employment.click_save
+  overlap.click_save
 end
 
 Then("it should show my employment history on the index") do
-  employment.click_back
-  expect(employment.employment_count).to eq 3
+  overlap.click_back
+  expect(overlap.table_count).to eq 3
 end
 
 When("I click edit employment") do
@@ -98,7 +98,7 @@ end
 
 When("change the details on my employment form") do
   employment.edit_employment
-  employment.click_save
+  overlap.click_save
 end
 
 Then(/^it should show the new company (.*) on my employment id page$/) do |company|
@@ -107,11 +107,11 @@ Then(/^it should show the new company (.*) on my employment id page$/) do |compa
 end
 
 When("I click to delete an employment history") do
-  employment.click_delete
+  overlap.click_delete
 end
 
 Then("it should remove that employment history from the index page") do
-  expect(employment.employment_count).to eq 2
+  expect(overlap.table_count).to eq 2
 end
 
 Given("I navigate to the education section") do
@@ -127,12 +127,12 @@ When("fill in the correct details of my education") do
   education.fill_in_course
   education.fill_in_date
   education.fill_in_desc
-  education.click_save
+  overlap.click_save
 end
 
 Then("it should show my education details on the index page") do
-  education.click_back
-  expect(education.education_count).to eq 3
+  overlap.click_back
+  expect(overlap.table_count).to eq 3
 end
 
 When("I click to edit my education details") do
@@ -141,7 +141,7 @@ end
 
 When("change the details on the education form") do
   education.edit_education
-  education.click_save
+  overlap.click_save
 end
 
 Then(/^it should show the new institution (.*) on the id page$/) do |institution|
@@ -150,11 +150,11 @@ Then(/^it should show the new institution (.*) on the id page$/) do |institution
 end
 
 When("I click to delete the education details") do
-  education.click_delete
+  overlap.click_delete
 end
 
 Then("it should not show my education details on the index page") do
-  expect(education.education_count).to eq 2
+  expect(overlap.table_count).to eq 2
 end
 
 Given("I navigate to the certification section") do
@@ -162,37 +162,40 @@ Given("I navigate to the certification section") do
 end
 
 When("I click to add a new certification") do
-  pending
+  certification.click_add
 end
 
 When("fill in the correct details of my certification") do
-  pending
+  certification.fill_in_title
+  certification.fill_in_desc
+  certification.click_save
 end
 
 Then("it should show my certification on the index page") do
-  pending
+  overlap.click_back
+  expect(overlap.table_count).to eq 3
 end
 
 When("I click to edit my certification") do
-  pending
+  certification.click_certification
 end
 
 When("change the details on the certification form") do
-  pending
+  certification.edit_certification
+  certification.click_save
 end
 
 Then(/^it should show the new title (.*) on the id page$/) do |title|
-  pending
-  # @new_title = title
-  # expect(certification.).to include(@new_title)
+  @new_title = title
+  expect(certification.check_edit).to include(@new_title)
 end
 
 When("I click to delete the certification") do
-  pending
+  overlap.click_delete
 end
 
 Then("it should not show the certification on the index page") do
-  pending
+  expect(overlap.table_count).to eq 2
 end
 
 Given("I navigate to the custom section") do
@@ -226,7 +229,7 @@ Then(/^it should show the new title (.*) on the custom id page$/) do |title|
 end
 
 When("I click to delete the custom section") do
-  pending
+  overlap.click_delete
 end
 
 Then("it should not show my custom section on the index page") do
@@ -264,7 +267,7 @@ Then(/^it should show the new title (.*) on the section id page$/) do
 end
 
 When("I click to delete my section") do
-  pending
+  overlap.click_delete
 end
 
 Then("it should not show my section on the index page") do
