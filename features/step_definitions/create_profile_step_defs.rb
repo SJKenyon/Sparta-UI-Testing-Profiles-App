@@ -119,37 +119,42 @@ Given("I navigate to the education section") do
 end
 
 When("I click to add new education details") do
-  pending
+  education.click_add
 end
 
 When("fill in the correct details of my education") do
-  pending
+  education.fill_in_institution
+  education.fill_in_course
+  education.fill_in_date
+  education.fill_in_desc
+  education.click_save
 end
 
 Then("it should show my education details on the index page") do
-  pending
+  education.click_back
+  expect(education.education_count).to eq 3
 end
 
 When("I click to edit my education details") do
-  pending
+  education.click_education
 end
 
 When("change the details on the education form") do
-  pending
+  education.edit_education
+  education.click_save
 end
 
 Then(/^it should show the new institution (.*) on the id page$/) do |institution|
-  pending
-  # @new_inst = institution
-  # expect(education.).to include(@new_inst)
+  @new_inst = institution
+  expect(education.check_edit).to include(@new_inst)
 end
 
 When("I click to delete the education details") do
-  pending
+  education.click_delete
 end
 
 Then("it should not show my education details on the index page") do
-  pending
+  expect(education.education_count).to eq 2
 end
 
 Given("I navigate to the certification section") do
