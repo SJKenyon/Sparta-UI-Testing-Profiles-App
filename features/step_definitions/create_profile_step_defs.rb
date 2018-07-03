@@ -240,7 +240,7 @@ When("fill in the correct details on the section page") do
   pending
 end
 
-Then("it should show my new section on the index page") do
+Then("it should show the new section on the index page") do
   pending
 end
 
@@ -252,7 +252,7 @@ When("change the details on the section form") do
   pending
 end
 
-Then(/^it should show the new title (.*) on the index page$/) do
+Then(/^it should show the new title (.*) on the section id page$/) do
   pending
   # @new_title = title
   # expect(section.).to include(@new_title)
@@ -286,23 +286,19 @@ Then("it should show me the profile on the index page") do
   pending
 end
 
-Given("there is already a profile created") do
-  pending
-end
-
-When("I click on the profile") do
-  pending
-end
-
-Then("it should show me the profile") do
-  pending
-end
-
 When("I click edit profile") do
   pending
 end
 
 When("change the details on my profile form") do
+  pending
+end
+
+Then("it should show the updated details on the id page") do
+  pending
+end
+
+Given("there is already a profile created") do
   pending
 end
 

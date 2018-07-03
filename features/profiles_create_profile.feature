@@ -66,6 +66,8 @@ Feature: I should be able to create a profile
     When I click to delete an employment history
     Then it should remove that employment history from the index page
 
+  @education
+  @create_education
   Scenario: I should be able to add education details
     Given I am logged in
     And I navigate to the education section
@@ -73,6 +75,8 @@ Feature: I should be able to create a profile
     And fill in the correct details of my education
     Then it should show my education details on the index page
 
+  @education
+  @update_education
   Scenario: Education edit
     Given I am logged in
     And I navigate to the education section
@@ -80,12 +84,16 @@ Feature: I should be able to create a profile
     And change the details on the education form
     Then it should show the new institution Test Institution Changed on the id page
 
+  @education
+  @destroy_education
   Scenario: Education destroy
     Given I am logged in
     And I navigate to the education section
     When I click to delete the education details
     Then it should not show my education details on the index page
 
+  @certification
+  @create_certification
   Scenario: Certifications create
     Given I am logged in
     And I navigate to the certification section
@@ -93,6 +101,8 @@ Feature: I should be able to create a profile
     And fill in the correct details of my certification
     Then it should show my certification on the index page
 
+  @certification
+  @update_certification
   Scenario: Certifications edit
     Given I am logged in
     And I navigate to the certification section
@@ -100,12 +110,16 @@ Feature: I should be able to create a profile
     And change the details on the certification form
     Then it should show the new title Test Title Changed on the id page
 
+  @certification
+  @destroy_certification
   Scenario: Certifications destroy
     Given I am logged in
     And I navigate to the certification section
     When I click to delete the certification
     Then it should not show the certification on the index page
 
+  @custom
+  @create_custom
   Scenario: Custom Sections create
     Given I am logged in
     And I navigate to the custom section
@@ -113,6 +127,8 @@ Feature: I should be able to create a profile
     And fill in the correct details for the custom section
     Then it should show my custom details on the index page
 
+  @custom
+  @update_custom
   Scenario: Custom Sections edit
     Given I am logged in
     And I navigate to the custom section
@@ -120,49 +136,54 @@ Feature: I should be able to create a profile
     And change the details on the custom form
     Then it should show the new title Test Title Changed on the custom id page
 
+  @custom
+  @destroy_custom
   Scenario: Custom Sections destroy
     Given I am logged in
     And I navigate to the custom section
     When I click to delete the custom section
     Then it should not show my custom section on the index page
 
+  @section
+  @create_section
   Scenario: Sections create
     Given I am logged in
     And I navigate to the extra section
     When I click to add a new section
     And fill in the correct details on the section page
-    Then it should show the new title Test Title Changed on the index page
+    Then it should show the new section on the index page
 
+  @section
+  @update_section
   Scenario: Sections edit
     Given I am logged in
     And I navigate to the extra section
     When I click to edit my section
     And change the details on the section form
-    Then it should show the updated details on the section id page
+    Then it should show the new title Test Title Changed on the section id page
 
+  @section
+  @destroy_section
   Scenario: Sections destroy
     Given I am logged in
     And I navigate to the extra section
     When I click to delete my section
     Then it should not show my section on the index page
 
+  @education_toggle
   Scenario: I should be able to choose my education stream at the academy
     Given I am logged in
     When I click create a profile
     Then I should be given a drop down list of streams to choose from
 
+  @create_profile
   Scenario: I should be able to create a profile
     Given I am logged in
     When I click new profile
     And add the correct details
     Then it should show me the profile on the index page
 
-  Scenario: I should be able to view an already created profile
-    Given I am logged in
-    And there is already a profile created
-    When I click on the profile
-    Then it should show me the profile
-
+  @update_profile
   Scenario: I should be able to edit my profile
     Given I am logged in
     When I click edit profile
