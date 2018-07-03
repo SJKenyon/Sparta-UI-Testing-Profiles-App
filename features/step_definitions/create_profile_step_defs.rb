@@ -203,23 +203,26 @@ Given("I navigate to the custom section") do
 end
 
 When("I click to add a new custom section") do
-  pending
+  custom.click_add
 end
 
 When("fill in the correct details for the custom section") do
-  pending
+  custom.fill_in_title
+  custom.fill_in_heading
+  custom.fill_in_body
+  overlap.click_save
 end
 
 Then("it should show my custom details on the index page") do
-  pending
+  expect(overlap.table_count).to eq 3
 end
 
 When("I click to edit my custom section") do
-  pending
+  custom.click_custom
 end
 
 When("change the details on the custom form") do
-  pending
+  custom.edit_custom
 end
 
 Then(/^it should show the new title (.*) on the custom id page$/) do |title|
