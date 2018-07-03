@@ -244,29 +244,33 @@ Given("I navigate to the extra section") do
 end
 
 When("I click to add a new section") do
-  pending
+  section.click_add
 end
 
 When("fill in the correct details on the section page") do
-  pending
+  section.fill_in_title
+  section.fill_in_desc
+  section.fill_in_skills
+  overlap.click_save
 end
 
 Then("it should show the new section on the index page") do
-  pending
+  overlap.click_back
+  expect(overlap.table_count).to eq 3
 end
 
 When("I click to edit my section") do
-  pending
+  section.click_section
 end
 
 When("change the details on the section form") do
-  pending
+  section.edit_section
+  overlap.click_save
 end
 
-Then(/^it should show the new title (.*) on the section id page$/) do
-  pending
-  # @new_title = title
-  # expect(section.).to include(@new_title)
+Then(/^it should show the new title (.*) on the section id page$/) do |title|
+  @new_title = title
+  expect(section.check_edit).to include(@new_title)
 end
 
 When("I click to delete my section") do
@@ -274,7 +278,7 @@ When("I click to delete my section") do
 end
 
 Then("it should not show my section on the index page") do
-  pending
+  expect(overlap.table_count).to eq 2
 end
 
 When("I click create a profile") do
