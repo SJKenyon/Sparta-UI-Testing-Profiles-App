@@ -16,6 +16,7 @@ Feature: I should be able to create a profile
 
   @project
   @create_project
+  @create_module
   Scenario: I should be able to add a new project
     Given I am logged in
     And I navigate to the project section
@@ -34,6 +35,7 @@ Feature: I should be able to create a profile
 
   @project
   @destroy_project
+  @destroy_module
   Scenario: I should be able to delete a project
     Given I am logged in
     And I navigate to the project section
@@ -42,6 +44,7 @@ Feature: I should be able to create a profile
 
   @employment
   @create_employment
+  @create_module
   Scenario: I should be able to add employment details
     Given I am logged in
     And I navigate to the employment section
@@ -60,6 +63,7 @@ Feature: I should be able to create a profile
 
   @employment
   @destory_employment
+  @destroy_module
   Scenario: I should be able to delete employment history
     Given I am logged in
     And I navigate to the employment section
@@ -68,6 +72,7 @@ Feature: I should be able to create a profile
 
   @education
   @create_education
+  @create_module
   Scenario: I should be able to add education details
     Given I am logged in
     And I navigate to the education section
@@ -86,6 +91,7 @@ Feature: I should be able to create a profile
 
   @education
   @destroy_education
+  @destroy_module
   Scenario: Education destroy
     Given I am logged in
     And I navigate to the education section
@@ -94,6 +100,7 @@ Feature: I should be able to create a profile
 
   @certification
   @create_certification
+  @create_module
   Scenario: Certifications create
     Given I am logged in
     And I navigate to the certification section
@@ -112,6 +119,7 @@ Feature: I should be able to create a profile
 
   @certification
   @destroy_certification
+  @destroy_module
   Scenario: Certifications destroy
     Given I am logged in
     And I navigate to the certification section
@@ -120,6 +128,7 @@ Feature: I should be able to create a profile
 
   @custom
   @create_custom
+  @create_module
   Scenario: Custom Sections create
     Given I am logged in
     And I navigate to the custom section
@@ -138,6 +147,7 @@ Feature: I should be able to create a profile
 
   @custom
   @destroy_custom
+  @destroy_module
   Scenario: Custom Sections destroy
     Given I am logged in
     And I navigate to the custom section
@@ -146,6 +156,7 @@ Feature: I should be able to create a profile
 
   @section
   @create_section
+  @create_module
   Scenario: Sections create
     Given I am logged in
     And I navigate to the extra section
@@ -164,6 +175,7 @@ Feature: I should be able to create a profile
 
   @section
   @destroy_section
+  @destroy_module
   Scenario: Sections destroy
     Given I am logged in
     And I navigate to the extra section
@@ -188,19 +200,14 @@ Feature: I should be able to create a profile
     Given I am logged in
     When I click edit profile
     And change the details on my profile form
-    Then it should show the updated details on the id page
+    Then it should show the new summary This is my new testing profile summary on the section id page
 
+  @delete_profile
   Scenario: I should be able to delete a profile
     Given I am logged in
     And there is already a profile created
     When I click to delete the profile
     Then it should remove the profile from that page
-
-  Scenario: I should be able to view my profile straight after completion
-    Given I am logged in
-    When I create a new profile
-    And click save
-    Then it should redirect me to that specific profiles page
 
   Scenario: I should be able to view my profile as a PDF document
     Given I am logged in

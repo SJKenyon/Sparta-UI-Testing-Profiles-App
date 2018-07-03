@@ -282,35 +282,42 @@ Then("it should not show my section on the index page") do
 end
 
 When("I click create a profile") do
-  pending
+  profile.click_add
 end
 
 Then("I should be given a drop down list of streams to choose from") do
-  pending
+  profile.profile_stream_exists
 end
 
 When("I click new profile") do
-  pending
+  profile.click_add
 end
 
 When("add the correct details") do
-  pending
+  profile.fill_in_summary
+  # profile.choose_stream
+  profile.fill_in_degree
+  profile.select_modules
+  overlap.click_save
+  profile.click_back
 end
 
 Then("it should show me the profile on the index page") do
-  pending
+  expect(overlap.table_count).to eq 6
 end
 
 When("I click edit profile") do
-  pending
+  profile.click_edit
 end
 
 When("change the details on my profile form") do
-  pending
+  profile.change_profile_summary
+  overlap.click_save
 end
 
-Then("it should show the updated details on the id page") do
-  pending
+Then(/^it should show the new summary (.*) on the section id page$/) do |summary|
+  @new_summary = summary
+  expect(profile.check_edit).to include(@new_summary)
 end
 
 Given("there is already a profile created") do
@@ -322,18 +329,6 @@ When("I click to delete the profile") do
 end
 
 Then("it should remove the profile from that page") do
-  pending
-end
-
-When("I create a new profile") do
-  pending
-end
-
-When("click save") do
-  pending
-end
-
-Then("it should redirect me to that specific profiles page") do
   pending
 end
 
