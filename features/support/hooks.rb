@@ -1,3 +1,3 @@
 Before do
-  puts "This is your before hook"
+  puts "Before hook"
 end

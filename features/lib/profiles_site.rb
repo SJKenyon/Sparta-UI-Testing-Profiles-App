@@ -9,6 +9,11 @@ require_relative "pages/profiles_sections"
 
 module Profiles
 
+  def teardown
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
+  end
+
   def certification
     Certification.new
   end

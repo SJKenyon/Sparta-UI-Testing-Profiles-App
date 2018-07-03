@@ -321,15 +321,15 @@ Then(/^it should show the new summary (.*) on the section id page$/) do |summary
 end
 
 Given("there is already a profile created") do
-  pending
+  expect(overlap.table_count).to eq 6
 end
 
 When("I click to delete the profile") do
-  pending
+  overlap.click_delete
 end
 
 Then("it should remove the profile from that page") do
-  pending
+  expect(overlap.table_count).to eq 5
 end
 
 When("I click download on an already created profile") do
