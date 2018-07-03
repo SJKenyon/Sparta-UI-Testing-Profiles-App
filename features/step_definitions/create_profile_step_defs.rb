@@ -45,7 +45,7 @@ end
 
 Then("it should show my project on the index") do
   project.click_back
-  expect(project.new_project_shown).to eq 3
+  expect(project.project_count).to eq 3
 end
 
 When("I click edit project") do
@@ -66,7 +66,7 @@ When("I click to delete the project") do
 end
 
 Then("it should remove the project from that page") do
-  expect(project.new_project_shown).to eq 2
+  expect(project.project_count).to eq 2
 end
 
 Given("I navigate to the employment section") do
@@ -74,35 +74,41 @@ Given("I navigate to the employment section") do
 end
 
 When("I click to add a new employment history") do
-  pending
+  employment.click_add
 end
 
 When("fill in the correct details of my employment") do
-  pending
+  employment.fill_in_company
+  employment.fill_in_role
+  employment.fill_in_date
+  employment.fill_in_desc
+  employment.click_save
 end
 
 Then("it should show my employment history on the index") do
-  pending
+  employment.click_back
+  expect(employment.employment_count).to eq 3
 end
 
 When("I click edit employment") do
-  pending
+  employment.click_employment
 end
 
 When("change the details on my employment form") do
-  pending
+  employment.edit_employment
+  employment.click_save
 end
 
 Then("it should show the new details on my employment id page") do
-  pending
+  expect(employment.check_edit).to include("Test Company Changed")
 end
 
 When("I click to delete an employment history") do
-  pending
+  employment.click_delete
 end
 
 Then("it should remove that employment history from the index page") do
-  pending
+  expect(employment.employment_count).to eq 2
 end
 
 Given("I navigate to the education section") do

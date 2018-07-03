@@ -55,6 +55,8 @@ Feature: I should be able to create a profile
     When I click to delete the project
     Then it should remove the project from that page
 
+  @employment
+  @create_employment
   Scenario: I should be able to add employment details
     Given I am logged in
     And I navigate to the employment section
@@ -62,6 +64,8 @@ Feature: I should be able to create a profile
     And fill in the correct details of my employment
     Then it should show my employment history on the index
 
+  @employment
+  @update_employment
   Scenario: I should be able to edit employment details
     Given I am logged in
     And I navigate to the employment section
@@ -69,6 +73,8 @@ Feature: I should be able to create a profile
     And change the details on my employment form
     Then it should show the new details on my employment id page
 
+  @employment
+  @destory_employment
   Scenario: I should be able to delete employment history
     Given I am logged in
     And I navigate to the employment section
