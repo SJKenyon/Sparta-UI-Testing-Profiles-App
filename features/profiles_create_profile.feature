@@ -16,7 +16,7 @@ Feature: I should be able to create a profile
 
   @project
   @create_project
-  @create_module
+  @create
   Scenario: I should be able to add a new project
     Given I am logged in
     And I navigate to the project section
@@ -35,7 +35,7 @@ Feature: I should be able to create a profile
 
   @project
   @destroy_project
-  @destroy_module
+  @destroy
   Scenario: I should be able to delete a project
     Given I am logged in
     And I navigate to the project section
@@ -44,7 +44,7 @@ Feature: I should be able to create a profile
 
   @employment
   @create_employment
-  @create_module
+  @create
   Scenario: I should be able to add employment details
     Given I am logged in
     And I navigate to the employment section
@@ -63,7 +63,7 @@ Feature: I should be able to create a profile
 
   @employment
   @destory_employment
-  @destroy_module
+  @destroy
   Scenario: I should be able to delete employment history
     Given I am logged in
     And I navigate to the employment section
@@ -72,7 +72,7 @@ Feature: I should be able to create a profile
 
   @education
   @create_education
-  @create_module
+  @create
   Scenario: I should be able to add education details
     Given I am logged in
     And I navigate to the education section
@@ -91,7 +91,7 @@ Feature: I should be able to create a profile
 
   @education
   @destroy_education
-  @destroy_module
+  @destroy
   Scenario: Education destroy
     Given I am logged in
     And I navigate to the education section
@@ -100,7 +100,7 @@ Feature: I should be able to create a profile
 
   @certification
   @create_certification
-  @create_module
+  @create
   Scenario: Certifications create
     Given I am logged in
     And I navigate to the certification section
@@ -119,7 +119,7 @@ Feature: I should be able to create a profile
 
   @certification
   @destroy_certification
-  @destroy_module
+  @destroy
   Scenario: Certifications destroy
     Given I am logged in
     And I navigate to the certification section
@@ -128,7 +128,7 @@ Feature: I should be able to create a profile
 
   @custom
   @create_custom
-  @create_module
+  @create
   Scenario: Custom Sections create
     Given I am logged in
     And I navigate to the custom section
@@ -147,7 +147,7 @@ Feature: I should be able to create a profile
 
   @custom
   @destroy_custom
-  @destroy_module
+  @destroy
   Scenario: Custom Sections destroy
     Given I am logged in
     And I navigate to the custom section
@@ -156,7 +156,7 @@ Feature: I should be able to create a profile
 
   @section
   @create_section
-  @create_module
+  @create
   Scenario: Sections create
     Given I am logged in
     And I navigate to the extra section
@@ -175,7 +175,7 @@ Feature: I should be able to create a profile
 
   @section
   @destroy_section
-  @destroy_module
+  @destroy
   Scenario: Sections destroy
     Given I am logged in
     And I navigate to the extra section
@@ -189,6 +189,7 @@ Feature: I should be able to create a profile
     Then I should be given a drop down list of streams to choose from
 
   @create_profile
+  @create
   Scenario: I should be able to create a profile
     Given I am logged in
     When I click new profile
@@ -203,6 +204,7 @@ Feature: I should be able to create a profile
     Then it should show the new summary This is my new testing profile summary on the section id page
 
   @delete_profile
+  @destroy
   Scenario: I should be able to delete a profile
     Given I am logged in
     And there is already a profile created
