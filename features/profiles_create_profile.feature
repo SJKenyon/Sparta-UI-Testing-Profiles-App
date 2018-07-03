@@ -199,6 +199,7 @@ Feature: I should be able to create a profile
   @update_profile
   Scenario: I should be able to edit my profile
     Given I am logged in
+    And there is already a profile created
     When I click edit profile
     And change the details on my profile form
     Then it should show the new summary This is my new testing profile summary on the section id page
