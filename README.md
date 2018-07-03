@@ -1,1 +1,1 @@
-# Sparta-UI-Testing-Profiles-App
+UI Testing - Sparta Profiles App
