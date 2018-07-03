@@ -5,7 +5,7 @@ class LogIn
   include Capybara::DSL
 
   def initialize
-    @login_url = "http://localhost:3000"
+    @login_url = ENV['PROFILES_URL']
     @email_a = ENV['ADMIN_EMAIL']
     @password_a = ENV['ADMIN_PASS']
     @email_t = ENV['TRAINEE_EMAIL']
