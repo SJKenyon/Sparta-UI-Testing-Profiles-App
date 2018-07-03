@@ -223,12 +223,12 @@ end
 
 When("change the details on the custom form") do
   custom.edit_custom
+  overlap.click_save
 end
 
 Then(/^it should show the new title (.*) on the custom id page$/) do |title|
-  pending
-  # @new_title = title
-  # expect(custom.).to include(@new_title)
+  @new_title = title
+  expect(custom.check_edit).to include(@new_title)
 end
 
 When("I click to delete the custom section") do
@@ -236,7 +236,7 @@ When("I click to delete the custom section") do
 end
 
 Then("it should not show my custom section on the index page") do
-  pending
+  expect(overlap.table_count).to eq 2
 end
 
 Given("I navigate to the extra section") do

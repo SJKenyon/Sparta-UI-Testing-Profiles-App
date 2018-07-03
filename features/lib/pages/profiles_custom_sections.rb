@@ -42,7 +42,7 @@ class Custom
   end
 
   def check_edit
-    find(:xpath, "/html/body/div/div[2]/p[1]").text
+    find(:xpath, "//table/tbody/tr[1]/td[1]").text
   end
 
 end
