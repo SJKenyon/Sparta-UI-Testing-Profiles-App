@@ -14,21 +14,6 @@ Feature: I should be able to create a profile
     When I click submit
     Then I should be redirected to the profiles index page for trainees
 
-  # Scenario: Log in - invalid?
-  #   Given
-  #   When
-  #   Then
-  #
-  # Scenario: Log in - invalid?
-  #   Given
-  #   When
-  #   Then
-  #
-  # Scenario: Log in - invalid?
-  #   Given
-  #   When
-  #   Then
-
   @project
   @create_project
   Scenario: I should be able to add a new project
@@ -45,7 +30,7 @@ Feature: I should be able to create a profile
     And I navigate to the project section
     When I click edit project
     And change the details on my project form
-    Then it should show the new details on my project id page
+    Then it should show the new title Test Title Changed on my project id page
 
   @project
   @destroy_project
@@ -71,7 +56,7 @@ Feature: I should be able to create a profile
     And I navigate to the employment section
     When I click edit employment
     And change the details on my employment form
-    Then it should show the new details on my employment id page
+    Then it should show the new company Test Company Changed on my employment id page
 
   @employment
   @destory_employment
@@ -93,7 +78,7 @@ Feature: I should be able to create a profile
     And I navigate to the education section
     When I click to edit my education details
     And change the details on the education form
-    Then it should show the updated details on the id page
+    Then it should show the new institution Test Institution Changed on the id page
 
   Scenario: Education destroy
     Given I am logged in
@@ -113,7 +98,7 @@ Feature: I should be able to create a profile
     And I navigate to the certification section
     When I click to edit my certification
     And change the details on the certification form
-    Then it should show the updated certification details on the id page
+    Then it should show the new title Test Title Changed on the id page
 
   Scenario: Certifications destroy
     Given I am logged in
@@ -133,7 +118,7 @@ Feature: I should be able to create a profile
     And I navigate to the custom section
     When I click to edit my custom section
     And change the details on the custom form
-    Then it should show the updated details on the custom id page
+    Then it should show the new title Test Title Changed on the custom id page
 
   Scenario: Custom Sections destroy
     Given I am logged in
@@ -146,7 +131,7 @@ Feature: I should be able to create a profile
     And I navigate to the extra section
     When I click to add a new section
     And fill in the correct details on the section page
-    Then it should show my new section on the index page
+    Then it should show the new title Test Title Changed on the index page
 
   Scenario: Sections edit
     Given I am logged in

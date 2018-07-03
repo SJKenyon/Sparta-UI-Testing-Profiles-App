@@ -11,11 +11,12 @@ When("I click submit") do
 end
 
 Then("I should be redirected to the profiles index page for trainers") do
-  expect(log_in.current_url).to eq("http://localhost:3000/profiles/adminindex")
+  expect(log_in.current_url).to eq(ENV['PROFILES_URL_ADMIN_HOME'])
 end
 
 And("I enter my details as a trainee") do
   pending
+  # log_in.log_in_trainee
 end
 
 Then("I should be redirected to the profiles index page for trainees") do
@@ -57,8 +58,9 @@ When("change the details on my project form") do
   project.click_save
 end
 
-Then("it should show the new details on my project id page") do
-  expect(project.check_edit).to include("Test Title Changed")
+Then(/^it should show the new title (.*) on my project id page$/) do |title|
+  @new_title = title
+  expect(project.check_edit).to include(@new_title)
 end
 
 When("I click to delete the project") do
@@ -99,8 +101,9 @@ When("change the details on my employment form") do
   employment.click_save
 end
 
-Then("it should show the new details on my employment id page") do
-  expect(employment.check_edit).to include("Test Company Changed")
+Then(/^it should show the new company (.*) on my employment id page$/) do |company|
+  @new_comp = company
+  expect(employment.check_edit).to include(@new_comp)
 end
 
 When("I click to delete an employment history") do
@@ -135,8 +138,10 @@ When("change the details on the education form") do
   pending
 end
 
-Then("it should show the updated details on the id page") do
+Then(/^it should show the new institution (.*) on the id page$/) do |institution|
   pending
+  # @new_inst = institution
+  # expect(education.).to include(@new_inst)
 end
 
 When("I click to delete the education details") do
@@ -171,8 +176,10 @@ When("change the details on the certification form") do
   pending
 end
 
-Then("it should show the updated certification details on the id page") do
+Then(/^it should show the new title (.*) on the id page$/) do |title|
   pending
+  # @new_title = title
+  # expect(certification.).to include(@new_title)
 end
 
 When("I click to delete the certification") do
@@ -207,8 +214,10 @@ When("change the details on the custom form") do
   pending
 end
 
-Then("it should show the updated details on the custom id page") do
+Then(/^it should show the new title (.*) on the custom id page$/) do |title|
   pending
+  # @new_title = title
+  # expect(custom.).to include(@new_title)
 end
 
 When("I click to delete the custom section") do
@@ -243,8 +252,10 @@ When("change the details on the section form") do
   pending
 end
 
-Then("it should show the updated details on the section id page") do
+Then(/^it should show the new title (.*) on the index page$/) do
   pending
+  # @new_title = title
+  # expect(section.).to include(@new_title)
 end
 
 When("I click to delete my section") do
