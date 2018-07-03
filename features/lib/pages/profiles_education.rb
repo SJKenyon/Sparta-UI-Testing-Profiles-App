@@ -12,8 +12,6 @@ class Education
     @start = "01/01/2018"
     @end = "01/05/2018"
     @desc = "Testing description 123456789"
-    @delete = "Destroy"
-    @confirm_delete = "Confirm"
   end
 
   def click_add
@@ -37,18 +35,6 @@ class Education
     find(:id, "education_description").send_keys(@desc)
   end
 
-  def click_save
-    find(:css, 'input[value="Save"]').click
-  end
-
-  def click_back
-    click_link("Back")
-  end
-
-  def education_count
-    page.all('table tr').count
-  end
-
   def click_education
     click_link(@institution)
   end
@@ -60,11 +46,6 @@ class Education
 
   def check_edit
     find(:xpath, "/html/body/div/div[2]/p[3]").text
-  end
-
-  def click_delete
-    click_link(@delete)
-    click_button(@confirm_delete)
   end
 
 end
