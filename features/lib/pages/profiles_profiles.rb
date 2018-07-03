@@ -25,7 +25,7 @@ class Profile
   end
 
   def click_customs
-    click_link("Custom sections")
+    click_link("Custom Sections")
   end
 
   def click_sections
