@@ -6,13 +6,9 @@ require_relative "pages/profiles_login"
 require_relative "pages/profiles_profiles"
 require_relative "pages/profiles_projects"
 require_relative "pages/profiles_sections"
+require_relative "pages/profiles_pdf"
 
 module Profiles
-
-  def teardown
-    Capybara.reset_sessions!
-    Capybara.use_default_driver
-  end
 
   def certification
     Certification.new
@@ -48,6 +44,10 @@ module Profiles
 
   def section
     Section.new
+  end
+
+  def pdf
+    Pdf.new
   end
 
 end

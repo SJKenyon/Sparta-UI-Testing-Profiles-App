@@ -78,4 +78,8 @@ class Profile
     find(:xpath, "/html/body/div/div[2]/div[2]/div[3]/div").text
   end
 
+  def click_download
+    click_link("Download")
+  end
+
 end

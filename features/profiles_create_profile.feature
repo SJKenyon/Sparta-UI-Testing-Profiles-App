@@ -1,5 +1,6 @@
 Feature: I should be able to create a profile
 
+  @login
   @valid_login_a
   Scenario: Using valid details I should be able to log in
     Given I am on the log in page
@@ -7,6 +8,7 @@ Feature: I should be able to create a profile
     When I click submit
     Then I should be redirected to the profiles index page for trainers
 
+  @login
   @valid_login_t
   Scenario: Using valid details I should be able to log in
     Given I am on the log in page
@@ -26,6 +28,7 @@ Feature: I should be able to create a profile
 
   @project
   @update_project
+  @update
   Scenario: I should be able to edit a project
     Given I am logged in
     And I navigate to the project section
@@ -54,6 +57,7 @@ Feature: I should be able to create a profile
 
   @employment
   @update_employment
+  @update
   Scenario: I should be able to edit employment details
     Given I am logged in
     And I navigate to the employment section
@@ -82,6 +86,7 @@ Feature: I should be able to create a profile
 
   @education
   @update_education
+  @update
   Scenario: Education edit
     Given I am logged in
     And I navigate to the education section
@@ -110,6 +115,7 @@ Feature: I should be able to create a profile
 
   @certification
   @update_certification
+  @update
   Scenario: Certifications edit
     Given I am logged in
     And I navigate to the certification section
@@ -138,6 +144,7 @@ Feature: I should be able to create a profile
 
   @custom
   @update_custom
+  @update
   Scenario: Custom Sections edit
     Given I am logged in
     And I navigate to the custom section
@@ -166,6 +173,7 @@ Feature: I should be able to create a profile
 
   @section
   @update_section
+  @update
   Scenario: Sections edit
     Given I am logged in
     And I navigate to the extra section
@@ -197,6 +205,7 @@ Feature: I should be able to create a profile
     Then it should show me the profile on the index page
 
   @update_profile
+  @update
   Scenario: I should be able to edit my profile
     Given I am logged in
     And there is already a profile created
@@ -212,11 +221,13 @@ Feature: I should be able to create a profile
     When I click to delete the profile
     Then it should remove the profile from that page
 
+  @view_pdf
   Scenario: I should be able to view my profile as a PDF document
     Given I am logged in
     When I click download on an already created profile
     Then it should redirect me to the profile as a PDF document
 
+  @download_pdf
   Scenario: I should be able to download my profile
     Given I am logged in
     When I click download on an already created profile

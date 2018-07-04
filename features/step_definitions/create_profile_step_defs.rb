@@ -15,13 +15,11 @@ Then("I should be redirected to the profiles index page for trainers") do
 end
 
 And("I enter my details as a trainee") do
-  pending
-  # log_in.log_in_trainee
+  log_in.log_in_trainee
 end
 
 Then("I should be redirected to the profiles index page for trainees") do
-  pending
-  # expect(log_in.current_url).to eq("")
+  expect(log_in.current_url).to eq(ENV['PROFILES_URL_TRAINEE_HOME'])
 end
 
 Given("I am logged in") do
@@ -295,7 +293,6 @@ end
 
 When("add the correct details") do
   profile.fill_in_summary
-  # profile.choose_stream
   profile.fill_in_degree
   profile.select_modules
   overlap.click_save
@@ -333,15 +330,17 @@ Then("it should remove the profile from that page") do
 end
 
 When("I click download on an already created profile") do
-  pending
+  profile.click_download
 end
 
 Then("it should redirect me to the profile as a PDF document") do
-  pending
+  pdf.on_pdf
+  expect(log_in.current_url).to include(".pdf")
 end
 
 When("click the download button on the PDF viewer") do
-  pending
+  pdf.download_pdf
+  page.accept_alert("OK")
 end
 
 Then("it should download the file") do
