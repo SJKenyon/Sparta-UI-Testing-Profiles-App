@@ -62,10 +62,7 @@ Then(/^it should show the new title (.*) on my project id page$/) do |title|
 end
 
 When("I click to delete the project") do
-  while (overlap.table_count) > 2 do
-    overlap.find_delete[0].click
-    overlap.click_confirm
-  end
+  overlap.click_delete
 end
 
 Then("it should remove the project from that page") do
@@ -108,10 +105,7 @@ Then(/^it should show the new company (.*) on my employment id page$/) do |compa
 end
 
 When("I click to delete an employment history") do
-  while (overlap.table_count) > 2 do
-    overlap.find_delete[0].click
-    overlap.click_confirm
-  end
+  overlap.click_delete
 end
 
 Then("it should remove that employment history from the index page") do
@@ -154,10 +148,7 @@ Then(/^it should show the new institution (.*) on the id page$/) do |institution
 end
 
 When("I click to delete the education details") do
-  while (overlap.table_count) > 2 do
-    overlap.find_delete[0].click
-    overlap.click_confirm
-  end
+  overlap.click_delete
 end
 
 Then("it should not show my education details on the index page") do
@@ -198,10 +189,7 @@ Then(/^it should show the new title (.*) on the id page$/) do |title|
 end
 
 When("I click to delete the certification") do
-  while (overlap.table_count) > 2 do
-    overlap.find_delete[0].click
-    overlap.click_confirm
-  end
+  overlap.click_delete
 end
 
 Then("it should not show the certification on the index page") do
@@ -242,10 +230,7 @@ Then(/^it should show the new title (.*) on the custom id page$/) do |title|
 end
 
 When("I click to delete the custom section") do
-  while (overlap.table_count) > 2 do
-    overlap.find_delete[0].click
-    overlap.click_confirm
-  end
+  overlap.click_delete
 end
 
 Then("it should not show my custom section on the index page") do
@@ -287,10 +272,7 @@ Then(/^it should show the new title (.*) on the section id page$/) do |title|
 end
 
 When("I click to delete my section") do
-  while (overlap.table_count) > 2 do
-    overlap.find_delete[0].click
-    overlap.click_confirm
-  end
+  overlap.click_delete
 end
 
 Then("it should not show my section on the index page") do
@@ -340,10 +322,7 @@ Given("there is already a profile created") do
 end
 
 When("I click to delete the profile") do
-  while (overlap.table_count) > 5 do
-    overlap.find_delete[0].click
-    overlap.click_confirm
-  end
+  overlap.click_delete
 end
 
 Then("it should remove the profile from that page") do
@@ -357,6 +336,17 @@ end
 Then("it should redirect me to the profile as a PDF document") do
   pdf.on_pdf
   expect(log_in.current_url).to include(".pdf")
+end
+
+When("I visit the PDF page of the profile") do
+  profile.click_download
+  pdf.on_pdf
+  expect(log_in.current_url).to include(".pdf")
+end
+
+Then("it should show the correct details") do
+  pending
+  # pdf.
 end
 
 When("click the download button on the PDF viewer") do

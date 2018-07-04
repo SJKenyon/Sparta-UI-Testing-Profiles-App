@@ -1,4 +1,4 @@
-Feature: I should be able to create a profile
+Feature: I should be able to create/read/update/delete a profile with all sections
 
   @login
   @valid_login_a
@@ -222,12 +222,21 @@ Feature: I should be able to create a profile
     Then it should remove the profile from that page
 
   @view_pdf
+  @firefox
   Scenario: I should be able to view my profile as a PDF document
     Given I am logged in
     When I click download on an already created profile
     Then it should redirect me to the profile as a PDF document
 
+  @pdf_details
+  @firefox
+  Scenario: The data on the PDF should match what I addded in earlier tests
+    Given I am logged in
+    When I visit the PDF page of the profile
+    Then it should show the correct details
+
   @download_pdf
+  @firefox
   Scenario: I should be able to download my profile
     Given I am logged in
     When I click download on an already created profile

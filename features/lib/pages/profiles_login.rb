@@ -9,7 +9,7 @@ class LogIn
     @email_a = ENV['ADMIN_EMAIL']
     @password_a = ENV['ADMIN_PASS']
     @email_t = ENV['TRAINEE_EMAIL']
-    @password_T = ENV['TRAINEE_PASS']
+    @password_t = ENV['TRAINEE_PASS']
   end
 
   def visit_login
