@@ -44,7 +44,7 @@ end
 
 Then("it should show my project on the index") do
   overlap.click_back
-  expect(overlap.table_count).to eq 3
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click edit project") do
@@ -90,7 +90,7 @@ end
 
 Then("it should show my employment history on the index") do
   overlap.click_back
-  expect(overlap.table_count).to eq 3
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click edit employment") do
@@ -136,7 +136,7 @@ end
 
 Then("it should show my education details on the index page") do
   overlap.click_back
-  expect(overlap.table_count).to eq 3
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click to edit my education details") do
@@ -180,7 +180,7 @@ end
 
 Then("it should show my certification on the index page") do
   overlap.click_back
-  expect(overlap.table_count).to eq 3
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click to edit my certification") do
@@ -224,7 +224,7 @@ When("fill in the correct details for the custom section") do
 end
 
 Then("it should show my custom details on the index page") do
-  expect(overlap.table_count).to eq 3
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click to edit my custom section") do
@@ -269,7 +269,7 @@ end
 
 Then("it should show the new section on the index page") do
   overlap.click_back
-  expect(overlap.table_count).to eq 3
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click to edit my section") do
@@ -318,7 +318,7 @@ When("add the correct details") do
 end
 
 Then("it should show me the profile on the index page") do
-  expect(overlap.table_count).to eq 6
+  expect(overlap.table_count).to be >= 6
 end
 
 When("I click edit profile") do
@@ -336,7 +336,7 @@ Then(/^it should show the new summary (.*) on the section id page$/) do |summary
 end
 
 Given("there is already a profile created") do
-  expect(overlap.table_count).to eq 6
+  expect(overlap.table_count).to be >= 6
 end
 
 When("I click to delete the profile") do
