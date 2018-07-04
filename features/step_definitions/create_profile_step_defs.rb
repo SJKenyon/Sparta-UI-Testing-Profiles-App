@@ -62,6 +62,7 @@ Then(/^it should show the new title (.*) on my project id page$/) do |title|
 end
 
 When("I click to delete the project") do
+  overlap.check_on_page
   overlap.click_delete
 end
 
@@ -105,6 +106,7 @@ Then(/^it should show the new company (.*) on my employment id page$/) do |compa
 end
 
 When("I click to delete an employment history") do
+  overlap.check_on_page
   overlap.click_delete
 end
 
@@ -148,6 +150,7 @@ Then(/^it should show the new institution (.*) on the id page$/) do |institution
 end
 
 When("I click to delete the education details") do
+  overlap.check_on_page
   overlap.click_delete
 end
 
@@ -189,6 +192,7 @@ Then(/^it should show the new title (.*) on the id page$/) do |title|
 end
 
 When("I click to delete the certification") do
+  overlap.check_on_page
   overlap.click_delete
 end
 
@@ -230,6 +234,7 @@ Then(/^it should show the new title (.*) on the custom id page$/) do |title|
 end
 
 When("I click to delete the custom section") do
+  overlap.check_on_page
   overlap.click_delete
 end
 
@@ -272,6 +277,7 @@ Then(/^it should show the new title (.*) on the section id page$/) do |title|
 end
 
 When("I click to delete my section") do
+  overlap.check_on_page
   overlap.click_delete
 end
 
@@ -345,8 +351,11 @@ When("I visit the PDF page of the profile") do
 end
 
 Then("it should show the correct details") do
-  pending
-  # pdf.
+  expect(pdf.check_projects).to include("Test")
+  expect(pdf.check_employment).to include("Test")
+  expect(pdf.check_education).to include("Test")
+  expect(pdf.check_certifications).to include("Test")
+  expect(pdf.check_section).to include("Test")
 end
 
 When("click the download button on the PDF viewer") do

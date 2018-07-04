@@ -21,6 +21,10 @@ class Overlap
     page.all('table tr').count
   end
 
+  def check_on_page
+    page.has_no_content?('Projects')
+  end
+
   def click_delete
     click_link(@delete)
     click_button(@confirm_delete)
