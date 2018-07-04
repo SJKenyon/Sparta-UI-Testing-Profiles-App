@@ -22,7 +22,6 @@ class Overlap
   end
 
   def check_on_page
-    # find(:css, "h1").text
     page.has_no_content?('Projects')
   end
 
