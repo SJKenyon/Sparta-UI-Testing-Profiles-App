@@ -77,6 +77,13 @@ Feature: I should be able to create a full profile
     Then it should redirect me to the profile as a PDF document
 
   @journey
+  @firefox
+  Scenario: The data on the PDF should match what I addded in earlier tests
+    Given I am logged in
+    When I visit the PDF page of the profile
+    Then it should show the correct details
+
+  @journey
   Scenario: I should be able to delete a profile
     Given I am logged in
     And there is already a profile created
