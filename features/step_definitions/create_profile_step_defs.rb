@@ -15,13 +15,11 @@ Then("I should be redirected to the profiles index page for trainers") do
 end
 
 And("I enter my details as a trainee") do
-  pending
-  # log_in.log_in_trainee
+  log_in.log_in_trainee
 end
 
 Then("I should be redirected to the profiles index page for trainees") do
-  pending
-  # expect(log_in.current_url).to eq("")
+  expect(log_in.current_url).to eq(ENV['PROFILES_URL_TRAINEE_HOME'])
 end
 
 Given("I am logged in") do
@@ -41,12 +39,12 @@ end
 When("fill in the correct details of my project") do
   project.fill_in_title
   project.fill_in_desc
-  project.click_save
+  overlap.click_save
 end
 
 Then("it should show my project on the index") do
-  project.click_back
-  expect(project.project_count).to eq 3
+  overlap.click_back
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click edit project") do
@@ -55,7 +53,7 @@ end
 
 When("change the details on my project form") do
   project.edit_project
-  project.click_save
+  overlap.click_save
 end
 
 Then(/^it should show the new title (.*) on my project id page$/) do |title|
@@ -64,11 +62,11 @@ Then(/^it should show the new title (.*) on my project id page$/) do |title|
 end
 
 When("I click to delete the project") do
-  project.click_delete
+  overlap.click_delete
 end
 
 Then("it should remove the project from that page") do
-  expect(project.project_count).to eq 2
+  expect(overlap.table_count).to eq 2
 end
 
 Given("I navigate to the employment section") do
@@ -84,12 +82,12 @@ When("fill in the correct details of my employment") do
   employment.fill_in_role
   employment.fill_in_date
   employment.fill_in_desc
-  employment.click_save
+  overlap.click_save
 end
 
 Then("it should show my employment history on the index") do
-  employment.click_back
-  expect(employment.employment_count).to eq 3
+  overlap.click_back
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click edit employment") do
@@ -98,7 +96,7 @@ end
 
 When("change the details on my employment form") do
   employment.edit_employment
-  employment.click_save
+  overlap.click_save
 end
 
 Then(/^it should show the new company (.*) on my employment id page$/) do |company|
@@ -107,11 +105,11 @@ Then(/^it should show the new company (.*) on my employment id page$/) do |compa
 end
 
 When("I click to delete an employment history") do
-  employment.click_delete
+  overlap.click_delete
 end
 
 Then("it should remove that employment history from the index page") do
-  expect(employment.employment_count).to eq 2
+  expect(overlap.table_count).to eq 2
 end
 
 Given("I navigate to the education section") do
@@ -127,12 +125,12 @@ When("fill in the correct details of my education") do
   education.fill_in_course
   education.fill_in_date
   education.fill_in_desc
-  education.click_save
+  overlap.click_save
 end
 
 Then("it should show my education details on the index page") do
-  education.click_back
-  expect(education.education_count).to eq 3
+  overlap.click_back
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click to edit my education details") do
@@ -141,7 +139,7 @@ end
 
 When("change the details on the education form") do
   education.edit_education
-  education.click_save
+  overlap.click_save
 end
 
 Then(/^it should show the new institution (.*) on the id page$/) do |institution|
@@ -150,11 +148,11 @@ Then(/^it should show the new institution (.*) on the id page$/) do |institution
 end
 
 When("I click to delete the education details") do
-  education.click_delete
+  overlap.click_delete
 end
 
 Then("it should not show my education details on the index page") do
-  expect(education.education_count).to eq 2
+  expect(overlap.table_count).to eq 2
 end
 
 Given("I navigate to the certification section") do
@@ -162,37 +160,40 @@ Given("I navigate to the certification section") do
 end
 
 When("I click to add a new certification") do
-  pending
+  certification.click_add
 end
 
 When("fill in the correct details of my certification") do
-  pending
+  certification.fill_in_title
+  certification.fill_in_desc
+  certification.click_save
 end
 
 Then("it should show my certification on the index page") do
-  pending
+  overlap.click_back
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click to edit my certification") do
-  pending
+  certification.click_certification
 end
 
 When("change the details on the certification form") do
-  pending
+  certification.edit_certification
+  certification.click_save
 end
 
 Then(/^it should show the new title (.*) on the id page$/) do |title|
-  pending
-  # @new_title = title
-  # expect(certification.).to include(@new_title)
+  @new_title = title
+  expect(certification.check_edit).to include(@new_title)
 end
 
 When("I click to delete the certification") do
-  pending
+  overlap.click_delete
 end
 
 Then("it should not show the certification on the index page") do
-  pending
+  expect(overlap.table_count).to eq 2
 end
 
 Given("I navigate to the custom section") do
@@ -200,37 +201,40 @@ Given("I navigate to the custom section") do
 end
 
 When("I click to add a new custom section") do
-  pending
+  custom.click_add
 end
 
 When("fill in the correct details for the custom section") do
-  pending
+  custom.fill_in_title
+  custom.fill_in_heading
+  custom.fill_in_body
+  overlap.click_save
 end
 
 Then("it should show my custom details on the index page") do
-  pending
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click to edit my custom section") do
-  pending
+  custom.click_custom
 end
 
 When("change the details on the custom form") do
-  pending
+  custom.edit_custom
+  overlap.click_save
 end
 
 Then(/^it should show the new title (.*) on the custom id page$/) do |title|
-  pending
-  # @new_title = title
-  # expect(custom.).to include(@new_title)
+  @new_title = title
+  expect(custom.check_edit).to include(@new_title)
 end
 
 When("I click to delete the custom section") do
-  pending
+  overlap.click_delete
 end
 
 Then("it should not show my custom section on the index page") do
-  pending
+  expect(overlap.table_count).to eq 2
 end
 
 Given("I navigate to the extra section") do
@@ -238,105 +242,116 @@ Given("I navigate to the extra section") do
 end
 
 When("I click to add a new section") do
-  pending
+  section.click_add
 end
 
 When("fill in the correct details on the section page") do
-  pending
+  section.fill_in_title
+  section.fill_in_desc
+  section.fill_in_skills
+  overlap.click_save
 end
 
 Then("it should show the new section on the index page") do
-  pending
+  overlap.click_back
+  expect(overlap.table_count).to be >= 3
 end
 
 When("I click to edit my section") do
-  pending
+  section.click_section
 end
 
 When("change the details on the section form") do
-  pending
+  section.edit_section
+  overlap.click_save
 end
 
-Then(/^it should show the new title (.*) on the section id page$/) do
-  pending
-  # @new_title = title
-  # expect(section.).to include(@new_title)
+Then(/^it should show the new title (.*) on the section id page$/) do |title|
+  @new_title = title
+  expect(section.check_edit).to include(@new_title)
 end
 
 When("I click to delete my section") do
-  pending
+  overlap.click_delete
 end
 
 Then("it should not show my section on the index page") do
-  pending
+  expect(overlap.table_count).to eq 2
 end
 
 When("I click create a profile") do
-  pending
+  profile.click_add
 end
 
 Then("I should be given a drop down list of streams to choose from") do
-  pending
+  profile.profile_stream_exists
 end
 
 When("I click new profile") do
-  pending
+  profile.click_add
 end
 
 When("add the correct details") do
-  pending
+  profile.fill_in_summary
+  profile.fill_in_degree
+  profile.select_modules
+  overlap.click_save
+  profile.click_back
 end
 
 Then("it should show me the profile on the index page") do
-  pending
+  expect(overlap.table_count).to be >= 6
 end
 
 When("I click edit profile") do
-  pending
+  profile.click_edit
 end
 
 When("change the details on my profile form") do
-  pending
+  profile.change_profile_summary
+  overlap.click_save
 end
 
-Then("it should show the updated details on the id page") do
-  pending
+Then(/^it should show the new summary (.*) on the section id page$/) do |summary|
+  @new_summary = summary
+  expect(profile.check_edit).to include(@new_summary)
 end
 
 Given("there is already a profile created") do
-  pending
+  expect(overlap.table_count).to be >= 6
 end
 
 When("I click to delete the profile") do
-  pending
+  overlap.click_delete
 end
 
 Then("it should remove the profile from that page") do
-  pending
-end
-
-When("I create a new profile") do
-  pending
-end
-
-When("click save") do
-  pending
-end
-
-Then("it should redirect me to that specific profiles page") do
-  pending
+  expect(overlap.table_count).to eq 5
 end
 
 When("I click download on an already created profile") do
-  pending
+  profile.click_download
 end
 
 Then("it should redirect me to the profile as a PDF document") do
+  pdf.on_pdf
+  expect(log_in.current_url).to include(".pdf")
+end
+
+When("I visit the PDF page of the profile") do
+  profile.click_download
+  pdf.on_pdf
+  expect(log_in.current_url).to include(".pdf")
+end
+
+Then("it should show the correct details") do
   pending
+  # pdf.
 end
 
 When("click the download button on the PDF viewer") do
-  pending
+  pdf.download_pdf
+  page.accept_alert("OK")
 end
 
 Then("it should download the file") do
