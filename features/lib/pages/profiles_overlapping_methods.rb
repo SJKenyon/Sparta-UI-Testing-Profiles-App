@@ -21,8 +21,16 @@ class Overlap
     page.all('table tr').count
   end
 
-  def click_delete
-    click_link(@delete)
+  def find_delete
+    # page.all('a', text: @delete).each do |button|
+    #   button.click
+    #   click_button(@confirm_delete)
+    # end
+
+    page.all('a', text: @delete)
+  end
+
+  def click_confirm
     click_button(@confirm_delete)
   end
 
